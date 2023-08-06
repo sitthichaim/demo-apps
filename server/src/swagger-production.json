@@ -1,0 +1,232 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "REST API",
+        "description": ""
+    },
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "default",
+            "description": "Endpoint default"
+        },
+        {
+            "name": "emojis",
+            "description": "Endpoint emojis"
+        },
+        {
+            "name": "react-apps",
+            "description": "Endpoint react-app"
+        },
+        {
+            "name": "users",
+            "description": "Endpoint users"
+        }
+    ],
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "consumes": [],
+    "produces": [],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "default"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/api/v1": {
+            "get": {
+                "tags": [
+                    "default"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/api/v1/emojis": {
+            "get": {
+                "tags": [
+                    "emojis"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {}
+            }
+        },
+        "/api/v1/react-apps": {
+            "post": {
+                "tags": [
+                    "react-apps"
+                ],
+                "description": "",
+                "required": [
+                    "_id",
+                    "pages"
+                ],
+                "properties": {
+                    "_id": {
+                        "type": "string",
+                        "uniqueItems": true
+                    },
+                    "pages": {
+                        "type": "string"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "_id": {
+                                "type": "string"
+                            },
+                            "pages": {
+                                "type": "string",
+                                "required": false
+                            }
+                        },
+                        "paramType": "body"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/v1/users": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "",
+                "parameters": [],
+                "responses": {}
+            },
+            "post": {
+                "tags": [
+                    "users"
+                ],
+                "description": "",
+                "required": [
+                    "fName",
+                    "lName"
+                ],
+                "properties": {
+                    "fName": {
+                        "type": "string"
+                    },
+                    "lName": {
+                        "type": "string"
+                    },
+                    "desc": {
+                        "type": "string"
+                    }
+                },
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "fName": {
+                                "type": "string"
+                            },
+                            "lName": {
+                                "type": "string"
+                            },
+                            "desc": {
+                                "type": "string"
+                            }
+                        },
+                        "paramType": "body"
+                    }
+                ],
+                "responses": {}
+            }
+        },
+        "/api/v1/users/{id}": {
+            "get": {
+                "tags": [
+                    "users"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "delete": {
+                "tags": [
+                    "users"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                ],
+                "responses": {}
+            },
+            "put": {
+                "tags": [
+                    "users"
+                ],
+                "description": "",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "required": true,
+                        "properties": {
+                            "id": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "required": true,
+                        "properties": {
+                            "fName": {
+                                "type": "string"
+                            },
+                            "lName": {
+                                "type": "string"
+                            },
+                            "desc": {
+                                "type": "string"
+                            }
+                        },
+                        "paramType": "body"
+                    }
+                ],
+                "responses": {}
+            }
+        }
+    },
+    "definitions": {}
+}

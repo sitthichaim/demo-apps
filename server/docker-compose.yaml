@@ -1,0 +1,41 @@
+version: '3.9'
+
+services:
+  # MongoDB services <pi not support>
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 27017:27017
+    volumes:
+      - mongo_db:/data/db
+
+  redis:
+    container_name: redis_container
+    image: redis:alpine
+    command: redis-server
+    ports:
+     - "6379:6379"
+    environment:
+     - REDIS_REPLICATION_MODE=master
+
+  # Node API service 
+  # api:
+  #   build: .
+  #   ports:
+  #   - 3333:3333
+  #   environment:
+  #     PORT: 3333
+  #     volumes:
+  #       - .:/usr/src/app
+  #     MONGO_URI: mongodb://db_container:27017/db
+  #     DB_NAME: my_db
+  #     NAME: server
+  #     REDIS_URL: redis://redis_container:6379
+  #   depends_on:
+  #     - mongo_db
+  #     - redis
+
+volumes:
+  mongo_db: {}
